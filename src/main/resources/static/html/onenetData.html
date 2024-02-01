@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>平台数据流展示</title>
+    <link rel="stylesheet" href="../layui-v2.6.8/layui/css/layui.css">
+    <script src="../layui-v2.6.8/layui/layui.js"></script>
+</head>
+<body>
+
+<!-- 你的 HTML 代码 -->
+<div class="layui-card">
+    <div class="layui-card-header">
+        <h2>数据流展示</h2>
+    </div>
+    <div class="layui-card-body">
+        <table class="layui-table" id="onenet-table" lay-filter="onenet-table"></table>
+    </div>
+    <div class="layui-btn-container">
+        <button id="led-on-1" type="button" class="layui-btn">ledON1</button>
+        <button type="button" class="layui-btn">ledON2</button>
+        <button id="led-on-3" type="button" class="layui-btn">ledON3</button>
+        <button type="button" class="layui-btn">ledOFF</button>
+        <button type="button" class="layui-btn">ledFlag</button>
+    </div>
+    <div class="layui-btn-container">
+        <button type="button" class="layui-btn layui-btn-warm">heatingON</button>
+        <button type="button" class="layui-btn layui-btn-warm">heatingOFF</button>
+        <button type="button" class="layui-btn layui-btn-warm">heatingFlag</button>
+    </div>
+    <div class="layui-btn-container">
+        <button type="button" class="layui-btn layui-btn-normal">fanON</button>
+        <button type="button" class="layui-btn layui-btn-normal">fanOFF</button>
+        <button type="button" class="layui-btn layui-btn-normal">fanFlag</button>
+    </div>
+    <div class="layui-btn-container">
+        <button id="curtain-on" type="button" class="layui-btn layui-btn-danger">curtainON</button>
+        <button id="curtain-off" type="button" class="layui-btn layui-btn-danger">curtainOFF</button>
+    </div>
+</div>
+
+
+<script>
+    layui.use(['layer', 'form'], function(){
+        var $ = layui.$;
+        //得到各种内置组件
+        var table = layui.table //表格
+            ,admin = layui.admin //轮播
+            ,upload = layui.upload //上传
+            ,element = layui.element //元素操作
+            ,slider = layui.slider //滑块
+            ,dropdown = layui.dropdown //下拉菜单
+
+        //执行一个 table 实例
+        table.render({
+            elem: '#onenet-table'
+            ,url: 'http://localhost:9001/OneNET/getDataStreamList' //数据接口
+            ,method: 'GET'
+            // ,page: true //开启分页
+            ,parseData: function (res) {
+                console.log(res);
+            }
+            ,cols: [[ //表头
+                {field: 'id', title: '数据流', width:100}
+                ,{field: 'current_value', title: '当前值', width:120, templet:function(d){return d.current_value+d.unit_symbol;}}
+            ]]
+        });
+
+        // 设置定时器每秒刷新一次表格
+        setInterval(function(){
+            table.reload('onenet-table', {
+                url: 'http://localhost:9001/OneNET/getDataStreamList' // 更新数据接口
+            });
+        }, 1000);
+
+        //ledON3
+        $('#led-on-3').click(function(){
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:9001/OneNET/sendTopic',
+                data:{
+                    cmd: "ledON3"
+                },
+                dataType: "json",
+                success: function (res) {//res为相应体,function为回调函数
+                    var alertIndex;
+                    if (res.code === 0) {
+                        alert("成功！");
+                        //window.history.back()
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    layer.alert('操作失败！！！' + XMLHttpRequest.status + "|" + XMLHttpRequest.readyState + "|" + textStatus, { icon: 5 });
+                }
+            });
+        });
+
+        //curtainON
+        $('#curtain-on').click(function(){
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:9001/OneNET/sendTopic',
+                data:{
+                    cmd: "curtainON"
+                },
+                dataType: "json",
+                success: function (res) {//res为相应体,function为回调函数
+                    var alertIndex;
+                    if (res.code === 0) {
+                        alert("成功！");
+                        //window.history.back()
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    layer.alert('操作失败！！！' + XMLHttpRequest.status + "|" + XMLHttpRequest.readyState + "|" + textStatus, { icon: 5 });
+                }
+            });
+        });
+
+        //curtainOFF
+        $('#curtain-off').click(function(){
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:9001/OneNET/sendTopic',
+                data:{
+                    cmd: "curtainOFF"
+                },
+                dataType: "json",
+                success: function (res) {//res为相应体,function为回调函数
+                    var alertIndex;
+                    if (res.code === 0) {
+                        alert("成功！");
+                        //window.history.back()
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    layer.alert('操作失败！！！' + XMLHttpRequest.status + "|" + XMLHttpRequest.readyState + "|" + textStatus, { icon: 5 });
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
