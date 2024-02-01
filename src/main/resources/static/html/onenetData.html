@@ -57,7 +57,11 @@
             elem: '#onenet-table'
             ,url: 'http://localhost:9001/OneNET/getDataStreamList' //数据接口
             ,method: 'GET'
-            // ,page: true //开启分页
+            ,page: {
+                layout:['limit','refresh'],
+                limit: 12,
+                limits: [10,12,15]
+            }
             ,parseData: function (res) {
                 console.log(res);
             }
@@ -69,9 +73,11 @@
 
         // 设置定时器每秒刷新一次表格
         setInterval(function(){
-            table.reload('onenet-table', {
-                url: 'http://localhost:9001/OneNET/getDataStreamList' // 更新数据接口
-            });
+            // table.reload('onenet-table', {
+            //     url: 'http://localhost:9001/OneNET/getDataStreamList' // 更新数据接口
+            //     ,
+            // });
+            $(".layui-icon-refresh").click();
         }, 1000);
 
         //ledON3
