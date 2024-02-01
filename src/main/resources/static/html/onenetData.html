@@ -19,20 +19,20 @@
     </div>
     <div class="layui-btn-container">
         <button id="led-on-1" type="button" class="layui-btn">ledON1</button>
-        <button type="button" class="layui-btn">ledON2</button>
+        <button id="led-on-2" type="button" class="layui-btn">ledON2</button>
         <button id="led-on-3" type="button" class="layui-btn">ledON3</button>
-        <button type="button" class="layui-btn">ledOFF</button>
-        <button type="button" class="layui-btn">ledFlag</button>
+        <button id="led-off" type="button" class="layui-btn">ledOFF</button>
+        <button id="led-flag" type="button" class="layui-btn">ledFlag</button>
     </div>
     <div class="layui-btn-container">
-        <button type="button" class="layui-btn layui-btn-warm">heatingON</button>
-        <button type="button" class="layui-btn layui-btn-warm">heatingOFF</button>
-        <button type="button" class="layui-btn layui-btn-warm">heatingFlag</button>
+        <button id="heating-on" type="button" class="layui-btn layui-btn-warm">heatingON</button>
+        <button id="heating-off" type="button" class="layui-btn layui-btn-warm">heatingOFF</button>
+        <button id="heating-flag" type="button" class="layui-btn layui-btn-warm">heatingFlag</button>
     </div>
     <div class="layui-btn-container">
-        <button type="button" class="layui-btn layui-btn-normal">fanON</button>
-        <button type="button" class="layui-btn layui-btn-normal">fanOFF</button>
-        <button type="button" class="layui-btn layui-btn-normal">fanFlag</button>
+        <button id="fan-on" type="button" class="layui-btn layui-btn-normal">fanON</button>
+        <button id="fan-off" type="button" class="layui-btn layui-btn-normal">fanOFF</button>
+        <button id="fan-flag" type="button" class="layui-btn layui-btn-normal">fanFlag</button>
     </div>
     <div class="layui-btn-container">
         <button id="curtain-on" type="button" class="layui-btn layui-btn-danger">curtainON</button>
@@ -58,9 +58,9 @@
             ,url: 'http://localhost:9001/OneNET/getDataStreamList' //数据接口
             ,method: 'GET'
             ,page: {
-                layout:['limit','refresh'],
-                limit: 12,
-                limits: [10,12,15]
+                layout:['refresh']
+                // limit: 12,
+                // limits: [10,12,15]
             }
             ,parseData: function (res) {
                 console.log(res);
@@ -80,6 +80,50 @@
             $(".layui-icon-refresh").click();
         }, 1000);
 
+        //ledON1
+        $('#led-on-1').click(function(){
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:9001/OneNET/sendTopic',
+                data:{
+                    cmd: "ledON1"
+                },
+                dataType: "json",
+                success: function (res) {//res为相应体,function为回调函数
+                    var alertIndex;
+                    if (res.code === 0) {
+                        alert("成功！");
+                        //window.history.back()
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    layer.alert('操作失败！！！' + XMLHttpRequest.status + "|" + XMLHttpRequest.readyState + "|" + textStatus, { icon: 5 });
+                }
+            });
+        });
+
+        //ledON2
+        $('#led-on-2').click(function(){
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:9001/OneNET/sendTopic',
+                data:{
+                    cmd: "ledON2"
+                },
+                dataType: "json",
+                success: function (res) {//res为相应体,function为回调函数
+                    var alertIndex;
+                    if (res.code === 0) {
+                        alert("成功！");
+                        //window.history.back()
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    layer.alert('操作失败！！！' + XMLHttpRequest.status + "|" + XMLHttpRequest.readyState + "|" + textStatus, { icon: 5 });
+                }
+            });
+        });
+
         //ledON3
         $('#led-on-3').click(function(){
             $.ajax({
@@ -87,6 +131,182 @@
                 url: 'http://localhost:9001/OneNET/sendTopic',
                 data:{
                     cmd: "ledON3"
+                },
+                dataType: "json",
+                success: function (res) {//res为相应体,function为回调函数
+                    var alertIndex;
+                    if (res.code === 0) {
+                        alert("成功！");
+                        //window.history.back()
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    layer.alert('操作失败！！！' + XMLHttpRequest.status + "|" + XMLHttpRequest.readyState + "|" + textStatus, { icon: 5 });
+                }
+            });
+        });
+
+        //ledOFF
+        $('#led-off').click(function(){
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:9001/OneNET/sendTopic',
+                data:{
+                    cmd: "ledOFF"
+                },
+                dataType: "json",
+                success: function (res) {//res为相应体,function为回调函数
+                    var alertIndex;
+                    if (res.code === 0) {
+                        alert("成功！");
+                        //window.history.back()
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    layer.alert('操作失败！！！' + XMLHttpRequest.status + "|" + XMLHttpRequest.readyState + "|" + textStatus, { icon: 5 });
+                }
+            });
+        });
+
+        //ledFlag
+        $('#led-flag').click(function(){
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:9001/OneNET/sendTopic',
+                data:{
+                    cmd: "ledFlag"
+                },
+                dataType: "json",
+                success: function (res) {//res为相应体,function为回调函数
+                    var alertIndex;
+                    if (res.code === 0) {
+                        alert("成功！");
+                        //window.history.back()
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    layer.alert('操作失败！！！' + XMLHttpRequest.status + "|" + XMLHttpRequest.readyState + "|" + textStatus, { icon: 5 });
+                }
+            });
+        });
+
+        //heatingON
+        $('#heating-on').click(function(){
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:9001/OneNET/sendTopic',
+                data:{
+                    cmd: "heatingON"
+                },
+                dataType: "json",
+                success: function (res) {//res为相应体,function为回调函数
+                    var alertIndex;
+                    if (res.code === 0) {
+                        alert("成功！");
+                        //window.history.back()
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    layer.alert('操作失败！！！' + XMLHttpRequest.status + "|" + XMLHttpRequest.readyState + "|" + textStatus, { icon: 5 });
+                }
+            });
+        });
+
+        //heatingOFF
+        $('#heating-off').click(function(){
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:9001/OneNET/sendTopic',
+                data:{
+                    cmd: "heatingOFF"
+                },
+                dataType: "json",
+                success: function (res) {//res为相应体,function为回调函数
+                    var alertIndex;
+                    if (res.code === 0) {
+                        alert("成功！");
+                        //window.history.back()
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    layer.alert('操作失败！！！' + XMLHttpRequest.status + "|" + XMLHttpRequest.readyState + "|" + textStatus, { icon: 5 });
+                }
+            });
+        });
+
+        //heatingFlag
+        $('#heating-flag').click(function(){
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:9001/OneNET/sendTopic',
+                data:{
+                    cmd: "heatingFlag"
+                },
+                dataType: "json",
+                success: function (res) {//res为相应体,function为回调函数
+                    var alertIndex;
+                    if (res.code === 0) {
+                        alert("成功！");
+                        //window.history.back()
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    layer.alert('操作失败！！！' + XMLHttpRequest.status + "|" + XMLHttpRequest.readyState + "|" + textStatus, { icon: 5 });
+                }
+            });
+        });
+
+        //fanON
+        $('#fan-on').click(function(){
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:9001/OneNET/sendTopic',
+                data:{
+                    cmd: "fanON"
+                },
+                dataType: "json",
+                success: function (res) {//res为相应体,function为回调函数
+                    var alertIndex;
+                    if (res.code === 0) {
+                        alert("成功！");
+                        //window.history.back()
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    layer.alert('操作失败！！！' + XMLHttpRequest.status + "|" + XMLHttpRequest.readyState + "|" + textStatus, { icon: 5 });
+                }
+            });
+        });
+
+        //fanOFF
+        $('#fan-off').click(function(){
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:9001/OneNET/sendTopic',
+                data:{
+                    cmd: "fanOFF"
+                },
+                dataType: "json",
+                success: function (res) {//res为相应体,function为回调函数
+                    var alertIndex;
+                    if (res.code === 0) {
+                        alert("成功！");
+                        //window.history.back()
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    layer.alert('操作失败！！！' + XMLHttpRequest.status + "|" + XMLHttpRequest.readyState + "|" + textStatus, { icon: 5 });
+                }
+            });
+        });
+
+        //fanFlag
+        $('#fan-flag').click(function(){
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:9001/OneNET/sendTopic',
+                data:{
+                    cmd: "fanFlag"
                 },
                 dataType: "json",
                 success: function (res) {//res为相应体,function为回调函数
