@@ -54,6 +54,7 @@ public class OneNetController {
         String topic="web";
         String key="VGnkw9CtI60y2PjtA7AxjP8Cf1A=";
         String cmd = params.get("cmd").toString();
+        System.out.println("@@@@@@@@@@"+cmd);
         SendMqttApi api = new SendMqttApi(topic, cmd, key);
         BasicResponse<Void> response = api.executeApi();
         System.out.println("errno:"+response.errno+" error:"+response.error);
