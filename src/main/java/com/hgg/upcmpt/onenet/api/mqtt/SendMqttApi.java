@@ -1,11 +1,11 @@
-package com.hgl.myforum.onenet.api.mqtt;
+package com.hgg.upcmpt.onenet.api.mqtt;
 
-import com.hgl.myforum.config.OneNETConfig;
-import com.hgl.myforum.onenet.api.AbstractAPI;
-import com.hgl.myforum.onenet.exception.OnenetApiException;
-import com.hgl.myforum.onenet.http.HttpPostMethod;
-import com.hgl.myforum.onenet.request.RequestInfo;
-import com.hgl.myforum.onenet.response.BasicResponse;
+import com.hgg.upcmpt.config.OneNETConfig;
+import com.hgg.upcmpt.onenet.api.AbstractAPI;
+import com.hgg.upcmpt.onenet.exception.OnenetApiException;
+import com.hgg.upcmpt.onenet.http.HttpPostMethod;
+import com.hgg.upcmpt.onenet.request.RequestInfo;
+import com.hgg.upcmpt.onenet.response.BasicResponse;
 import org.apache.http.HttpResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

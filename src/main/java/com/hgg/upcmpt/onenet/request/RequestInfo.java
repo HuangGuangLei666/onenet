@@ -1,4 +1,4 @@
-package com.hgl.myforum.onenet.request;
+package com.hgg.upcmpt.onenet.request;
 
 import java.util.Map;
 

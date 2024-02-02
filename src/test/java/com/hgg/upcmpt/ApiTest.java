@@ -1,8 +1,8 @@
-package com.hgl.myforum;
+package com.hgg.upcmpt;
 
-import com.hgl.myforum.onenet.api.datastreams.FindDatastreamListApi;
-import com.hgl.myforum.onenet.response.BasicResponse;
-import com.hgl.myforum.onenet.response.datastreams.DatastreamsResponse;
+import com.hgg.upcmpt.onenet.api.datastreams.FindDatastreamListApi;
+import com.hgg.upcmpt.onenet.response.BasicResponse;
+import com.hgg.upcmpt.onenet.response.datastreams.DatastreamsResponse;
 import org.junit.Test;
 import java.util.List;
 

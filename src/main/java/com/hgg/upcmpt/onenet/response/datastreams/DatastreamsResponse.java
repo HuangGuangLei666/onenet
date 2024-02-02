@@ -1,4 +1,4 @@
-package com.hgl.myforum.onenet.response.datastreams;
+package com.hgg.upcmpt.onenet.response.datastreams;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;

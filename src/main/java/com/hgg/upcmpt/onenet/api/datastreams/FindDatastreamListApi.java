@@ -1,13 +1,13 @@
-package com.hgl.myforum.onenet.api.datastreams;
+package com.hgg.upcmpt.onenet.api.datastreams;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.hgl.myforum.config.OneNETConfig;
-import com.hgl.myforum.onenet.api.AbstractAPI;
-import com.hgl.myforum.onenet.exception.OnenetApiException;
-import com.hgl.myforum.onenet.http.HttpGetMethod;
-import com.hgl.myforum.onenet.response.BasicResponse;
-import com.hgl.myforum.onenet.response.datastreams.DatastreamsResponse;
-import com.hgl.myforum.onenet.request.RequestInfo.Method;
+import com.hgg.upcmpt.config.OneNETConfig;
+import com.hgg.upcmpt.onenet.api.AbstractAPI;
+import com.hgg.upcmpt.onenet.exception.OnenetApiException;
+import com.hgg.upcmpt.onenet.http.HttpGetMethod;
+import com.hgg.upcmpt.onenet.request.RequestInfo;
+import com.hgg.upcmpt.onenet.response.BasicResponse;
+import com.hgg.upcmpt.onenet.response.datastreams.DatastreamsResponse;
 import org.apache.http.HttpResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,7 +30,7 @@ public class FindDatastreamListApi extends AbstractAPI {
 		this.datastreamids = datastreamids;
 		this.devId = devId;
 		this.key = key;
-		this.method = Method.GET;
+		this.method = RequestInfo.Method.GET;
 		this.HttpMethod = new HttpGetMethod(method);
         Map<String, Object> headmap = new HashMap<String, Object>();
         Map<String, Object> urlmap = new HashMap<String, Object>();

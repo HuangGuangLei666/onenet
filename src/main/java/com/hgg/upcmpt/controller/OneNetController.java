@@ -1,13 +1,13 @@
-package com.hgl.myforum.controller;
+package com.hgg.upcmpt.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
-import com.hgl.myforum.config.OneNETConfig;
-import com.hgl.myforum.onenet.response.ResultData;
-import com.hgl.myforum.onenet.api.datastreams.FindDatastreamListApi;
-import com.hgl.myforum.onenet.api.mqtt.SendMqttApi;
-import com.hgl.myforum.onenet.response.BasicResponse;
-import com.hgl.myforum.onenet.response.datastreams.DatastreamsResponse;
+import com.hgg.upcmpt.config.OneNETConfig;
+import com.hgg.upcmpt.onenet.response.ResultData;
+import com.hgg.upcmpt.onenet.api.datastreams.FindDatastreamListApi;
+import com.hgg.upcmpt.onenet.api.mqtt.SendMqttApi;
+import com.hgg.upcmpt.onenet.response.BasicResponse;
+import com.hgg.upcmpt.onenet.response.datastreams.DatastreamsResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;

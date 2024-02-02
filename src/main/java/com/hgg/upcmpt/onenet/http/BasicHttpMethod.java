@@ -1,8 +1,8 @@
-package com.hgl.myforum.onenet.http;
+package com.hgg.upcmpt.onenet.http;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.hgl.myforum.onenet.exception.OnenetApiException;
-import com.hgl.myforum.onenet.request.RequestInfo;
+import com.hgg.upcmpt.onenet.exception.OnenetApiException;
+import com.hgg.upcmpt.onenet.request.RequestInfo;
 import org.apache.http.client.methods.*;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.slf4j.Logger;

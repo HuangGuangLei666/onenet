@@ -1,4 +1,4 @@
-package com.hgl.myforum.onenet.exception;
+package com.hgg.upcmpt.onenet.exception;
 
 /**
  * Created by Yuzhou on 2017/3/21.

@@ -1,6 +1,6 @@
-package com.hgl.myforum.onenet.api;
+package com.hgg.upcmpt.onenet.api;
 
-import com.hgl.myforum.onenet.request.RequestInfo.Method;
+import com.hgg.upcmpt.onenet.request.RequestInfo;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.text.DateFormat;
@@ -11,7 +11,7 @@ import java.util.TimeZone;
 public abstract class AbstractAPI<T> {
     public String key;
     public String url;
-    public Method method;
+    public RequestInfo.Method method;
     public ObjectMapper mapper = initObjectMapper();
 
     private ObjectMapper initObjectMapper() {

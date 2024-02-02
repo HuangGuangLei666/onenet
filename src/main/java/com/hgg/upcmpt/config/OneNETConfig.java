@@ -1,4 +1,4 @@
-package com.hgl.myforum.config;
+package com.hgg.upcmpt.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package com.hgl.myforum.onenet.response;
+package com.hgg.upcmpt.onenet.response;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;

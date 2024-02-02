@@ -1,6 +1,6 @@
-package com.hgl.myforum.onenet.http;
+package com.hgg.upcmpt.onenet.http;
 
-import com.hgl.myforum.onenet.exception.OnenetApiException;
+import com.hgg.upcmpt.onenet.exception.OnenetApiException;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.HttpGet;

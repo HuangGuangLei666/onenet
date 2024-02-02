@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.hgl</groupId>
-	<artifactId>myforum</artifactId>
+	<artifactId>upper-computer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>myforum</name>
+	<name>upper-computer</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
