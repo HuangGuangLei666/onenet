@@ -1,12 +1,12 @@
 package com.hgl.myforum.onenet.api.datastreams;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.hgl.myforum.config.OneNETConfig;
 import com.hgl.myforum.onenet.api.AbstractAPI;
 import com.hgl.myforum.onenet.exception.OnenetApiException;
 import com.hgl.myforum.onenet.http.HttpGetMethod;
 import com.hgl.myforum.onenet.response.BasicResponse;
 import com.hgl.myforum.onenet.response.datastreams.DatastreamsResponse;
-import com.hgl.myforum.onenet.utils.Config;
 import com.hgl.myforum.onenet.request.RequestInfo.Method;
 import org.apache.http.HttpResponse;
 import org.slf4j.Logger;
@@ -36,7 +36,7 @@ public class FindDatastreamListApi extends AbstractAPI {
         Map<String, Object> urlmap = new HashMap<String, Object>();
         headmap.put("api-key", key);
         HttpMethod.setHeader(headmap);
-        this.url = Config.getString("test.url") + "/devices/" + devId + "/datastreams";
+        this.url = OneNETConfig.url + "/devices/" + devId + "/datastreams";
         // url参数
         if (datastreamids != null) {
             urlmap.put("datastream_ids", datastreamids);

@@ -1,11 +1,11 @@
 package com.hgl.myforum.onenet.api.mqtt;
 
+import com.hgl.myforum.config.OneNETConfig;
 import com.hgl.myforum.onenet.api.AbstractAPI;
 import com.hgl.myforum.onenet.exception.OnenetApiException;
 import com.hgl.myforum.onenet.http.HttpPostMethod;
 import com.hgl.myforum.onenet.request.RequestInfo;
 import com.hgl.myforum.onenet.response.BasicResponse;
-import com.hgl.myforum.onenet.utils.Config;
 import org.apache.http.HttpResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,7 +34,7 @@ public class SendMqttApi extends AbstractAPI {
         HttpMethod = new HttpPostMethod(method);
         headmap.put("api-key", key);
         HttpMethod.setHeader(headmap);
-        this.url = Config.getString("test.url") + "/mqtt";
+        this.url = OneNETConfig.url + "/mqtt";
         if (topic != null) {
             urlmap.put("topic", topic);
         }

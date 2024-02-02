@@ -1,12 +1,9 @@
-package com.hgl.myforum.onenet;
+package com.hgl.myforum.onenet.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.poi.ss.formula.functions.T;
-
-import java.util.List;
 
 @Data
 @Builder

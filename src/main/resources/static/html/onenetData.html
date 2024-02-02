@@ -18,25 +18,25 @@
         <table class="layui-table" id="onenet-table" lay-filter="onenet-table"></table>
     </div>
     <div class="layui-btn-container">
-        <button id="curtain-on" type="button" class="layui-btn layui-btn-danger" value="curtainON">窗帘ON<i class="layui-icon">&#xe638;</i></button>
-        <button id="curtain-off" type="button" class="layui-btn layui-btn-danger" value="curtainOFF">窗帘OFF<i class="layui-icon">&#xe638;</i></button>
+        <button id="curtain-on" type="button" class="layui-btn layui-btn-primary" value="curtainON">窗帘ON<i class="layui-icon">&#xe638;</i></button>
+        <button id="curtain-off" type="button" class="layui-btn layui-btn-primary" value="curtainOFF">窗帘OFF<i class="layui-icon">&#xe638;</i></button>
     </div>
     <div class="layui-btn-container">
-        <button id="heating-on" type="button" class="layui-btn layui-btn-warm" value="heatingON">暖气ON<i class="layui-icon">&#xe756;</i></button>
-        <button id="heating-off" type="button" class="layui-btn layui-btn-warm" value="heatingOFF">暖气OFF<i class="layui-icon">&#xe756;</i></button>
-        <button id="heating-flag" type="button" class="layui-btn layui-btn-warm" value="heatingFlag">暖气智能控制</button>
+        <button id="heating-on" type="button" class="layui-btn layui-btn-primary layui-border-red" value="heatingON">暖气ON<i class="layui-icon">&#xe756;</i></button>
+        <button id="heating-off" type="button" class="layui-btn layui-btn-primary layui-border-red" value="heatingOFF">暖气OFF<i class="layui-icon">&#xe756;</i></button>
+        <button id="heating-flag" type="button" class="layui-btn layui-btn-primary layui-border-red" value="heatingFlag">暖气智能控制</button>
     </div>
     <div class="layui-btn-container">
-        <button id="fan-on" type="button" class="layui-btn layui-btn-normal" value="fanON">抽风机ON<i class="layui-icon">&#xe665;</i></button>
-        <button id="fan-off" type="button" class="layui-btn layui-btn-normal" value="fanOFF">抽风机OFF<i class="layui-icon">&#xe665;</i></button>
-        <button id="fan-flag" type="button" class="layui-btn layui-btn-normal" value="fanFlag">抽风机智能控制</button>
+        <button id="fan-on" type="button" class="layui-btn layui-btn-primary layui-border-blue" value="fanON">抽风机ON<i class="layui-icon">&#xe665;</i></button>
+        <button id="fan-off" type="button" class="layui-btn layui-btn-primary layui-border-blue" value="fanOFF">抽风机OFF<i class="layui-icon">&#xe665;</i></button>
+        <button id="fan-flag" type="button" class="layui-btn layui-btn-primary layui-border-blue" value="fanFlag">抽风机智能控制</button>
     </div>
     <div class="layui-btn-container">
-        <button id="led-on-1" type="button" class="layui-btn" value="ledON1">LED一档<i class="layui-icon">&#xe748;</i></button>
-        <button id="led-on-2" type="button" class="layui-btn" value="ledON2">LED二档<i class="layui-icon">&#xe748;</i></button>
-        <button id="led-on-3" type="button" class="layui-btn" value="ledON3">LED三档<i class="layui-icon">&#xe748;</i></button>
-        <button id="led-off" type="button" class="layui-btn" value="ledOFF">LED关<i class="layui-icon">&#xe748;</i></button>
-        <button id="led-flag" type="button" class="layui-btn" value="ledFlag">LED智能控制</button>
+        <button id="led-on-1" type="button" class="layui-btn layui-btn-primary layui-border-orange" value="ledON1">LED一档<i class="layui-icon">&#xe748;</i></button>
+        <button id="led-on-2" type="button" class="layui-btn layui-btn-primary layui-border-orange" value="ledON2">LED二档<i class="layui-icon">&#xe748;</i></button>
+        <button id="led-on-3" type="button" class="layui-btn layui-btn-primary layui-border-orange" value="ledON3">LED三档<i class="layui-icon">&#xe748;</i></button>
+        <button id="led-off" type="button" class="layui-btn layui-btn-primary layui-border-orange" value="ledOFF">LED关<i class="layui-icon">&#xe748;</i></button>
+        <button id="led-flag" type="button" class="layui-btn layui-btn-primary layui-border-orange" value="ledFlag">LED智能控制</button>
     </div>
 </div>
 
@@ -70,9 +70,9 @@
         });
 
         // 设置定时器每秒刷新一次表格
-        /*setInterval(function(){
+        setInterval(function(){
             $(".layui-icon-refresh").click();
-        }, 1000);*/
+        }, 1000);
 
         $('#curtain-on').click(function(){
             sendTopic($(this).val());
@@ -124,7 +124,9 @@
                 dataType: "json",
                 success: function (res) {//res为相应体,function为回调函数
                     if (res.code === 0) {
-                        alert("成功！");
+                        alert(res.msg);
+                    }else {
+                        alert(res.msg);
                     }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {

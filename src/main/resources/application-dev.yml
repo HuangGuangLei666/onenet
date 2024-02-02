@@ -49,3 +49,11 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     cache-enabled: true
 
+# onenet平台配置参数
+onenet:
+  url: http://api.heclouds.com                          # 请求onenet地址
+  dataStream: wendu,shidu,guang,led,fan,heating,curtain # 数据流名称，多个用逗号隔开
+  lowCmptDevId: 1185537350                              # 下位机设备id
+  apiKey: soRab9XyC82UlDatDB7W2iF=E78=                  # APIKey的值
+  topicParam: web                                       # topic参数值
+  masterApiKey: VGnkw9CtI60y2PjtA7AxjP8Cf1A=            # Master-APIkey值
