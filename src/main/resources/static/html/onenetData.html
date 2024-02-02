@@ -78,7 +78,7 @@
         // 设置定时器每秒刷新一次表格
         setInterval(function(){
             $(".layui-icon-refresh").click();
-        }, 1000);
+        }, 2000);
 
         $('#curtain-on').click(function(){
             sendTopic($(this).val());
@@ -130,9 +130,9 @@
                 dataType: "json",
                 success: function (res) {//res为相应体,function为回调函数
                     if (res.code === 0) {
-                        alert(res.msg);
+                        // alert(res.msg);
                     }else {
-                        alert(res.msg);
+                        // alert(res.msg);
                     }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {

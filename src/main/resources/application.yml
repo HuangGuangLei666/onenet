@@ -1,3 +1,33 @@
+server:
+  port: 9001
 spring:
-  profiles:
-    active: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/myforum?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+    type: com.alibaba.druid.pool.DruidDataSource
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+    connection-properties: druid.stat.merggSql=ture;druid.stat.slowSqlMillis=5000
+    filters: stat,wall
+    logSlowSql: true
+
+# onenet平台配置参数
+onenet:
+  url: http://api.heclouds.com                          # 请求onenet地址
+  dataStream: wendu,shidu,guang,led,fan,heating,curtain # 数据流名称，多个用逗号隔开
+  lowCmptDevId: 1185537350                              # 下位机设备id
+  apiKey: soRab9XyC82UlDatDB7W2iF=E78=                  # APIKey的值
+  topicParam: web                                       # topic参数值
+  masterApiKey: VGnkw9CtI60y2PjtA7AxjP8Cf1A=            # Master-APIkey值
