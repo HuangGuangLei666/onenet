@@ -75,9 +75,9 @@
             ]]
         });
 
-        // 设置定时器每秒刷新一次表格
-        setInterval(function(){
+        window.setInterval(() => {
             $(".layui-icon-refresh").click();
+            setTimeout(fun, 0);
         }, 2000);
 
         $('#curtain-on').click(function(){
